@@ -89,7 +89,7 @@ vim.o.numberwidth = 5
 vim.o.signcolumn = "yes"
 
 -- Disable line wrapping
-vim.o.wrap = false
+vim.o.wrap = true
 
 -- Disable lazy redraw for smoother animations (set to true for macros)
 vim.o.lazyredraw = false
