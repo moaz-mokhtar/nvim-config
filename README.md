@@ -306,6 +306,7 @@ To change the colorscheme, edit `lua/config/globals.lua` and modify the `vim.g.c
 Available themes:
 
 - `tokyonight` - Default modern dark theme
+- `ayu` - Ayu theme (`mirage` variant recommended)
 - `nvchad` - Base46 NvChad themes
 
 Example:
