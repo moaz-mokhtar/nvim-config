@@ -106,6 +106,9 @@ vim.o.cmdheight = 0
 -- Set help window height
 vim.o.helpheight = 10
 
+-- Use rounded borders for floating windows globally (hover/help/etc.)
+-- vim.o.winborder = "rounded"
+
 -- Specify what’s saved in a session
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
@@ -134,3 +137,10 @@ vim.opt.whichwrap:append("<>[]hl")
 vim.opt.iskeyword:append("-")
 
 require("config.globals")
+
+-- Use bordered floating windows for diagnostics (e.g. line diagnostics popups)
+vim.diagnostic.config({
+  float = {
+    border = "rounded",
+  },
+})

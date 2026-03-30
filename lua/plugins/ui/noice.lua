@@ -42,6 +42,9 @@ return {
         opts = { skip = true },
       },
     },
+    presets = {
+      lsp_doc_border = true,
+    },
     lsp = {
       progress = {
         -- enabled = vim.g.colorscheme ~= "nvchad",
@@ -70,7 +73,9 @@ return {
           throttle = 50, -- Debounce lsp signature help request by 50ms
         },
         view = nil, -- when nil, use defaults from documentation
-        opts = {}, -- merged with defaults from documentation
+        opts = {
+          border = "rounded",
+        }, -- merged with defaults from documentation
       },
       message = {
         -- Messages shown by lsp servers
@@ -82,6 +87,7 @@ return {
       documentation = {
         view = "hover",
         opts = {
+          border = "rounded",
           lang = "markdown",
           replace = true,
           render = "plain",
