@@ -148,10 +148,22 @@ M.modules = {
   command = function()
     local noice_ok, noice = pcall(require, "noice.api")
     if noice_ok and noice.status.command.has() then
-      return " %#St_gitIcons#" .. noice.status.command.get() .. " "
+      local cmd = noice.status.command.get()
+      if cmd:match("^%s*<%d+>%s*$") then
+        return " "
+      end
+      return " %#St_gitIcons#" .. cmd .. " "
     else
       return " "
     end
+  end,
+
+  ai_suggestions = function()
+    local ok, ai_mode = pcall(require, "config.ai_mode")
+    if not ok then
+      return ""
+    end
+    return " %#St_gitIcons#" .. ai_mode.statusline()
   end,
 
   lazy_updates = function()
