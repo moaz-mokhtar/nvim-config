@@ -33,7 +33,7 @@ return {
       opts.sections = opts.sections or {}
       opts.sections.lualine_x = opts.sections.lualine_x or {}
 
-      -- Remove noisy Noice command/mode components (e.g. "<20>")
+      -- Keep the command display, but drop noisy mode/extra AI provider components.
       opts.sections.lualine_x = vim.tbl_filter(function(component)
         if type(component) ~= "table" or type(component[1]) ~= "function" then
           return true
@@ -42,10 +42,12 @@ return {
         if not info or type(info.source) ~= "string" then
           return true
         end
-        -- Drop LazyVim's Noice command/mode components.
-        if info.source:find("/lazyvim/plugins/ui.lua", 1, true)
-          and (info.linedefined == 116 or info.linedefined == 122)
-        then
+        -- Drop only LazyVim's Noice mode component.
+        if info.source:find("/lazyvim/plugins/ui.lua", 1, true) and info.linedefined == 122 then
+          return false
+        end
+        -- Drop cmp_source status inserted by AI extras. We already show a clear text label.
+        if info.source:find("/lazyvim/util/lualine.lua", 1, true) and info.linedefined == 13 then
           return false
         end
         return true
@@ -64,12 +66,14 @@ return {
           end
           return "OFF"
         end,
+        padding = { left = 1, right = 1 },
+        separator = { right = "│" },
       })
 
       -- table.insert(opts.sections.lualine_x, { statusline.clients })
       table.insert(opts.sections.lualine_x, {
         function()
-          local venv = statusline.python_venv()
+          local venv = statusline.modules.python_venv()
           return venv ~= " " and venv or ""
         end,
       })

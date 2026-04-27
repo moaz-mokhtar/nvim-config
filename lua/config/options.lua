@@ -144,3 +144,8 @@ vim.diagnostic.config({
     border = "rounded",
   },
 })
+
+-- Arabic language support
+vim.opt.arabic = true
+vim.opt.arabicshape = true
+vim.opt.encoding = "utf-8"
