@@ -31,6 +31,7 @@ M.ui = {
       "python_venv",
       "diagnostics",
       "debug_status",
+      "ai_suggestions",
       "command",
       "lazy_updates",
       -- "clients",

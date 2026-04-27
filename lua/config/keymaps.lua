@@ -2,6 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 local utils = require("config.utils")
+local ai_mode = require("config.ai_mode")
 
 -- Yank All Text
 vim.keymap.set("n", "<leader>y", "<cmd>%y+<cr>", { desc = "Yank All Text", silent = true })
@@ -79,3 +80,9 @@ vim.keymap.set("n", "<leader>uC", function()
     Snacks.picker.colorschemes()
   end
 end, { desc = "Colorschemes" })
+
+-- Cycle code suggestion mode:
+-- off -> supermaven -> codeium -> off
+vim.keymap.set("n", "<leader><CR>", function()
+  ai_mode.cycle()
+end, { desc = "Cycle AI Suggestions", silent = true })

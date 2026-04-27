@@ -1,5 +1,58 @@
 # 🚀 Professional IDE-Class Neovim Configuration
 
+<!--toc:start-->
+- [🚀 Professional IDE-Class Neovim Configuration](#🚀-professional-ide-class-neovim-configuration)
+  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+    - [Quick Install (Recommended)](#quick-install-recommended)
+      - [Linux/macOS](#linuxmacos)
+      - [Windows (PowerShell)](#windows-powershell)
+    - [Manual Install](#manual-install)
+  - [Features](#features)
+    - [Neovim](#neovim)
+    - [🤖 AI & Coding](#🤖-ai-coding)
+    - [🔧 Development Tools](#🔧-development-tools)
+    - [🎨 UI & Experience](#🎨-ui-experience)
+    - [🌐 Language Support](#🌐-language-support)
+      - [CSV/TSV](#csvtsv)
+      - [Web Development](#web-development)
+      - [Backend & Systems](#backend-systems)
+      - [Data & DevOps](#data-devops)
+      - [Documentation & Markup](#documentation-markup)
+    - [🛠️ Tooling](#🛠️-tooling)
+    - [🚀 Advanced Workflow Features](#🚀-advanced-workflow-features)
+      - [Project Bootstrap System (`<leader>P`)](#project-bootstrap-system-leaderp)
+      - [Advanced Code Runner (`<leader>ce`)](#advanced-code-runner-leaderce)
+      - [Real-time Collaboration](#real-time-collaboration)
+      - [Performance & Utilities](#performance-utilities)
+  - [Configuration](#configuration)
+    - [Architecture Overview](#architecture-overview)
+    - [Managing Language Support](#managing-language-support)
+      - [Using LazyExtras UI](#using-lazyextras-ui)
+      - [Direct Configuration](#direct-configuration)
+      - [Common Extras to Consider Removing](#common-extras-to-consider-removing)
+    - [Theme](#theme)
+      - [Changing Colorscheme](#changing-colorscheme)
+    - [Performance Optimizations](#performance-optimizations)
+    - [Key Customizations](#key-customizations)
+    - [Disabled Features](#disabled-features)
+  - [Structure](#structure)
+    - [Custom Additions](#custom-additions)
+    - [Enhanced Features](#enhanced-features)
+    - [Intentionally Disabled](#intentionally-disabled)
+  - [Customization Guide](#customization-guide)
+    - [Adding New Plugins](#adding-new-plugins)
+    - [Modifying Theme](#modifying-theme)
+    - [LSP Customization](#lsp-customization)
+  - [Troubleshooting](#troubleshooting)
+    - [Common Issues](#common-issues)
+    - [Getting Help](#getting-help)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Credits](#credits)
+  - [Links](#links)
+<!--toc:end-->
+
 A sophisticated Neovim setup that combines **LazyVim**'s powerful foundation with **NvChad**'s polished UI components, creating a professional IDE-class experience with AI-powered coding, extensive language support (15+ languages), and advanced workflow automation.
 
 Perfect for developers seeking a unified environment for web development, backend systems, mobile apps, competitive programming, and real-time collaboration.
@@ -253,6 +306,7 @@ To change the colorscheme, edit `lua/config/globals.lua` and modify the `vim.g.c
 Available themes:
 
 - `tokyonight` - Default modern dark theme
+- `ayu` - Ayu theme (`mirage` variant recommended)
 - `nvchad` - Base46 NvChad themes
 
 Example:
