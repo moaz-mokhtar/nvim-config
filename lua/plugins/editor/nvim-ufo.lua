@@ -17,6 +17,13 @@ return {
       return buftype == "" and { "treesitter", "indent" }
     end,
   },
+  config = function(_, opts)
+    local async_path = vim.fs.joinpath(
+      vim.fn.stdpath("data"), "lazy", "promise-async", "lua", "async.lua"
+    )
+    package.loaded.async = loadfile(async_path)()
+    require("ufo").setup(opts)
+  end,
   dependencies = {
     "kevinhwang91/promise-async",
     {
