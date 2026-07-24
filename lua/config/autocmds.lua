@@ -2,8 +2,7 @@
 
 -- ====================================================================
 -- Neovim Autocommands Configuration
--- These autocommands are automatically loaded after the "VeryLazy" event.
--- Reference (LazyVim defaults): https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
+-- These autocommands are automatically loaded after the "VeryLazy" event. Reference (LazyVim defaults): https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 --
 -- Use this file to define custom autocmds or override defaults.
 -- You can remove LazyVim defaults by group name (prefixed with "lazyvim_").
@@ -29,6 +28,10 @@ autocmd("TermOpen", {
   callback = function()
     vim.opt_local.relativenumber = false
     vim.opt_local.number = false
+    local title = vim.b.term_title or ""
+    local shell = title:match("([^/]+)$") or "terminal"
+    vim.b.term_title = shell
+    -- vim.wo.winbar = " " .. shell .. " "
     vim.cmd("startinsert!")
   end,
   group = general,

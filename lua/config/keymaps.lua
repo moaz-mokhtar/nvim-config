@@ -35,6 +35,20 @@ vim.keymap.set("n", "<leader>P", function()
   utils.bootstrap_project()
 end, { desc = "Project Bootstrap", silent = true })
 
+-- Floating Terminal (Right Side, Rounded Border)
+vim.keymap.set("n", "<leader>fT", function()
+  Snacks.terminal(vim.o.shell, {
+    cwd = LazyVim.root(),
+    win = {
+      border = "rounded",
+      row = 0,
+      col = -1,
+      width = 0.4,
+      height = 0.8,
+    },
+  })
+end, { desc = "Terminal (Float Right)" })
+
 -- lazy
 vim.keymap.set("n", "<leader>lh", "<cmd>Lazy<cr>", { desc = "Lazy Home" })
 vim.keymap.set("n", "<leader>le", "<cmd>LazyExtras<cr>", { desc = "Lazy Extras" })
