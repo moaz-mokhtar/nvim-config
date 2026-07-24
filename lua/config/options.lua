@@ -146,6 +146,6 @@ vim.diagnostic.config({
 })
 
 -- Arabic language support
-vim.opt.arabic = true
+vim.opt.arabic = false
 vim.opt.arabicshape = true
 vim.opt.encoding = "utf-8"
